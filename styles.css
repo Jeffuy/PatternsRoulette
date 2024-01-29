@@ -100,6 +100,15 @@ body {
 	z-index: 2;
 }
 
+.container .wheel .number[style*="--clr:#fff"] span {
+	color: black;
+}
+
+
+.container .wheel .number[style*="--clr:#555"] span {
+	color: black;
+}
+
 .container .wheel .number .belt {
 	position: absolute;
 	top: 35%;
@@ -124,8 +133,8 @@ body {
 }
 
 .container .wheel .highlight span {
-	color: gold;
-	font-size: 1.5em;
+	color: gold !important;
+	font-size: 1.05em;
 	transition: all 3s ease-in-out;
 }
 
@@ -190,7 +199,7 @@ body {
 	}
 
 	.container .wheel .highlight span {
-		font-size: 0.80em;
+		font-size: 0.65em;
 	}
 
 	.container .wheel .number .belt {
@@ -242,9 +251,7 @@ body {
 	}
 
 	.container .wheel .highlight span {
-		color: gold;
 		font-size: 0.57em;
-		transition: all 3s ease-in-out;
 	}
 
 	.container .wheel .number .belt img {
@@ -254,12 +261,10 @@ body {
 	.container .wheel .highlight .belt {
 		top: 35%;
 		left: 30%;
-		transition: all 3s ease-in-out;
 	}
 
 	.container .wheel .highlight .belt img {
 		width: 40px;
-		transition: all 3s ease-in-out;
 	}
 
 	.resultContainer #resultText {
