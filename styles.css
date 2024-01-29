@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 
-*{
+* {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif;
 }
-body{
+
+body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -18,7 +19,7 @@ body{
 
 }
 
-.container{
+.container {
 	position: relative;
 	width: 600px;
 	height: 600px;
@@ -43,7 +44,7 @@ body{
 	color: #333;
 	letter-spacing: 0.1em;
 	cursor: pointer;
-	border: 4px solid rgba(0,0,0,0.75);
+	border: 4px solid rgba(0, 0, 0, 0.75);
 	user-select: none;
 }
 
@@ -72,28 +73,46 @@ body{
 }
 
 .container .wheel .number {
-    position: absolute;
-    width: 50%;
-    height: 50%;
-    background: var(--clr);
-    transform-origin: bottom right;
-    transform: rotate(calc(17.142857deg * var(--i)));
-    clip-path: polygon(0 0, 25% 0, 100% 100%, 0 25%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    user-select: none;
-    cursor: pointer;
+	position: absolute;
+	width: 50%;
+	height: 50%;
+	background: var(--clr);
+	transform-origin: bottom right;
+	transform: rotate(calc(17.142857deg * var(--i)));
+	clip-path: polygon(0 0, 25% 0, 100% 100%, 0 25%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	user-select: none;
+	cursor: normal;
 }
 
 .container .wheel .number span {
-	position: relative;
-	transform: rotate(45deg);
+	position: absolute;
+	left: 60%;
+	top: 60%;
+	transform: translate(-50%, -50%) rotate(45deg);
 	font-size: 1em;
 	font-weight: 700;
 	color: #fff;
 	text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.15);
+	z-index: 2;
 }
+
+.container .wheel .number .belt {
+	position: absolute;
+	top: 35%;
+	left: 30%;
+	transform: rotate(-45deg);
+	z-index: 1;
+}
+
+.container .wheel .number .belt img {
+	width: 60px;
+	height: auto;
+	object-fit: contain;
+}
+
 
 .container .wheel .highlight {
 	width: 50%;
@@ -109,21 +128,34 @@ body{
 	transition: all 3s ease-in-out;
 }
 
-.resultContainer {
-	display: flex;
-	width: 85%;
-	justify-content: center;
-	align-items: center;
-	padding-top: 25px;
+.container .wheel .highlight .belt {
+	top: 35%;
+	left: 25%;
+	transition: all 3s ease-in-out;
 }
 
-#resultText {
+.container .wheel .highlight .belt img {
+	width: 100px;
+	transition: all 3s ease-in-out;
+}
+
+.resultContainer {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	padding-top: 25px;
+	cursor: normal;
+}
+
+.resultContainer #resultText {
 	font-size: 1.5em;
 	font-weight: 600;
 	color: #fff;
 	text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.15);
 	text-align: center;
+	width: 100%;
 }
+
 
 
 
@@ -136,52 +168,100 @@ body{
 
 @media (max-width: 600px) {
 	.container {
-		width: 350px;
-		height: 350px;
+		width: 400px;
+		height: 400px;
 	}
+
 	.container .spinBtn {
 		width: 40px;
 		height: 40px;
 		font-size: 0.65em;
 	}
+
 	.container .spinBtn::before {
 		top: -18px;
 		width: 10px;
 		height: 15px;
 	}
+
 	.container .wheel .number span {
-		font-size: 0.75em;
+		font-size: 0.60em;
 	}
 
 	.container .wheel .highlight span {
-		color: gold;
-		font-size: 1.0em;
+		font-size: 0.80em;
+	}
+
+	.container .wheel .number .belt {
+		top: 35%;
+		left: 32%;
+	}
+
+	.container .wheel .number .belt img {
+		width: 35px;
+	}
+
+	.container .wheel .highlight .belt {
+		top: 35%;
+		left: 25%;
 		transition: all 3s ease-in-out;
 	}
+
+	.container .wheel .highlight .belt img {
+		width: 55px;
+		transition: all 3s ease-in-out;
+	}
+
+	.resultContainer #resultText {
+		font-size: 1.3em;
+	}
+
 }
 
 @media (max-width: 400px) {
 	.container {
-		width: 250px;
-		height: 250px;
+		width: 320px;
+		height: 320px;
 	}
+
 	.container .spinBtn {
 		width: 30px;
 		height: 30px;
 		font-size: 0.45em;
 	}
+
 	.container .spinBtn::before {
 		top: -13px;
 		width: 8px;
 		height: 10px;
 	}
+
 	.container .wheel .number span {
-		font-size: 0.65em;
+		font-size: 0.55em;
 	}
 
 	.container .wheel .highlight span {
 		color: gold;
-		font-size: 0.80em;
+		font-size: 0.57em;
 		transition: all 3s ease-in-out;
+	}
+
+	.container .wheel .number .belt img {
+		width: 25px;
+	}
+
+	.container .wheel .highlight .belt {
+		top: 35%;
+		left: 30%;
+		transition: all 3s ease-in-out;
+	}
+
+	.container .wheel .highlight .belt img {
+		width: 40px;
+		transition: all 3s ease-in-out;
+	}
+
+	.resultContainer #resultText {
+		font-size: 1.0em;
 	}
 }

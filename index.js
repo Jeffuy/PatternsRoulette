@@ -29,9 +29,9 @@ spinBtn.onclick = function () {
 			if (index === winningSegment) {
 				segment.classList.add('highlight');
 
-				let winningText = segment.textContent || segment.innerText;
+				let winningText = segment.textContent.trim() || segment.innerText.trim();
                 resultText.innerText = `La forma elegida es ${winningText}!`;
-
+				console.log(winningText)
 			}
 		});
 	}, 3000);
